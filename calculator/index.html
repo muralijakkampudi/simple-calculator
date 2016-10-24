@@ -1,0 +1,313 @@
+<html>
+
+	<head>
+		
+		<title>calculator</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<style>
+		
+			.container{
+			position: relative;
+			margin: 0px auto;
+			padding: 20px;
+			border: 10px solid gainsboro;
+			overflow: hidden;
+			background-color: rgb(30, 83, 103);
+			float: left;
+			border-radius: 22px;
+			}
+			
+			.wrapper{
+			position:relative;
+			margin:0px auto;
+			padding:0px;
+			width:400px;
+			background-color:#FFFFFF;
+			overflow:hidden;
+			text-align:center;
+			}
+			
+			.result_screen{
+			position: relative;
+			overflow: hidden;
+			width: 380px;
+			padding: 5px;
+			border: 5px solid #28c4d2;
+			}
+			
+			#screen{
+			width: 360px;
+			border-left-width: 13px;
+			height: 50px;
+			border-top-width: 5px;
+			font-size: -webkit-xxx-large;
+			}
+			
+			.buttons{
+			position: relative;
+			background-color: #1d7372;
+			width: 380px;
+			padding-left: 10px;
+			border: 5px solid #22b7a7;
+			float: left;
+			}
+			
+			.keys{
+			width: 60px;
+			height: 46px;
+			color: black;
+			padding: 0px;
+			position: relative;
+			margin: 12px;
+			border: 5px solid darkgray;
+			font-size: large;
+			font-weight: 700;
+			}
+			
+			.keys1 {
+			width: 60px;
+			height: 46px;
+			color: #4c39dc;
+			padding: 0px;
+			position: relative;
+			background-color: aquamarine;
+			margin: 12px;
+			font-size: large;
+			font-weight: 700;
+			border: 5px solid darkgray;
+			}
+			
+			.keys2{
+			width: 60px;
+			height: 46px;
+			color: black;
+			padding: 0px;
+			background-color: #22d6e6;
+			margin: 7px;
+			font-size: large;
+			border: 5px solid #8fffd9;
+			font-weight: 700;
+			position: relative;
+			margin: 12px;
+			}
+			
+			.keys3{
+			width: 60px;
+			height: 46px;
+			color: black;
+			padding: 0px;
+			background-color: #ff4400;
+			margin: 7px;
+			font-size: large;
+			border: 5px solid #d0ff8f;
+			font-weight: 700;
+			position: relative;
+			margin: 12px;
+			}
+		
+		</style>
+	
+		<script>
+		
+		
+		
+		$(document).ready(function(){
+			
+			
+		var x = "";
+		var y = "";
+		var c1 = "";
+		var oper = "";
+	
+		function func(c1,param){
+		
+		
+			if(c1 == 1){
+				oper = param;
+				$("#screen").val(oper);
+			}
+			
+			if(c1 == 2){
+			
+				var res = 0;
+				
+				switch(oper){
+				
+				
+					case '+' :
+					res = parseInt(x) + parseInt(y);
+					$("#screen").val(res);
+					x=res;
+					y="";
+					break;
+								
+					case '-':
+					res = x-y;
+					$("#screen").val(res);
+					x=res;
+					y="";
+					break;
+					
+					case '*':
+					res = x*y;
+					$("#screen").val(res);
+					x=res;
+					y="";
+					break;
+					
+					case '/':
+					res = x/y;
+					$("#screen").val(res);
+					x=res;
+					y="";
+					
+				}
+					
+			
+			}
+		
+		
+		
+		
+			if(c1 == 0){
+				
+				if(oper == ""){
+					x = x + param;
+					$("#screen").val(x);
+				}
+				
+				else{
+					y = y + param;
+					$("#screen").val(y);
+				}
+				
+			}
+	
+		
+	
+		}
+			function clear(){
+			x = "";
+			y = "";
+			c1 = "";
+			oper = "";
+			}
+
+			   $('#n9').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+
+			   $('#n8').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n7').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n6').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n5').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n4').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n3').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n2').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n1').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#n0').click(function(){ 
+				var param = $(this).val();
+				func(0,param);
+				});
+				
+				$('#add').click(function(){ 
+				var param = $(this).val();
+				func(1,param);
+				});
+			   
+			   $('#subr').click(function(){ 
+				var param = $(this).val();
+				func(1,param);
+				});
+				
+				$('#mul').click(function(){ 
+				var param = $(this).val();
+				func(1,param);
+				});
+				
+				$('#divi').click(function(){ 
+				var param = $(this).val();
+				func(1,param);
+				});
+				
+			   $("#cs").click(function(){
+				  $("#screen").val("");
+				  clear();
+			   });
+			   
+			   $('#eql').click(function(){ 
+				var param = $(this).val();
+				func(2,param);
+				});
+			   
+		 });
+ 
+		</script>
+	</head>
+	
+	<body>
+	
+		<div class="container">
+		
+			
+					<div class="result_screen">
+						<input type="text" placeholder="result" id="screen">
+					</div>
+					
+					<div class="buttons">
+						<input type="submit" value="9"  class="keys" id="n9">
+						<input type="submit" value="8" class="keys" id="n8">
+						<input type="submit" value="7" class="keys" id="n7">
+						<input type="submit" value="cs" class="keys2" id="cs">
+						<input type="submit" value="6" class="keys" id="n6">
+						<input type="submit" value="5" class="keys" id="n5">
+						<input type="submit" value="4" class="keys" id="n4">
+						<input type="submit" value="-" class="keys1" id="subr">
+						<input type="submit" value="3" class="keys" id="n3">
+						<input type="submit" value="2" class="keys" id="n2">
+						<input type="submit" value="1" class="keys" id="n1">
+						<input type="submit" value="*" class="keys1" id="mul">
+						<input type="submit" value="0" class="keys" id="n0">
+						<input type="submit" value="=" class="keys3" id="eql">
+						<input type="submit" value="+" class="keys1" id="add">
+						<input type="submit" value="/" class="keys1" id="divi">
+					</div>
+			</div>
+		
+		</div>
+	
+	</body>
+</html>
